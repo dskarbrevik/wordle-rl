@@ -1,0 +1,19 @@
+{
+    "word_file_paths":{
+        "valid_words_file_path":"./word_lists/all_wordle_words.txt",
+        "game_words_file_path":"./word_lists/train_wordle_words.txt"
+    },
+  
+    "rl_env":{
+      "VERBOSITY": "WARNING",
+      "WIN_REWARD": 1000,
+      "RIGHT_LETTER_REWARD": 1,
+      "RIGHT_POSITION_REWARD": 5,
+      "PENALTY": -500
+    },
+
+    "agent_config": {
+        "AGENT_TYPE": "DQN",
+        "POLICY": "MlpPolicy"
+    }
+  }
