@@ -10,7 +10,7 @@ def main(train_steps):
 
     model = A2C('MlpPolicy', env, verbose=1, device=torch.device(0))
 
-    model.learn(total_timesteps=train_steps)
+    model.learn(total_timesteps=int(train_steps))
 
     model.save("wordle_rl_model")
 
