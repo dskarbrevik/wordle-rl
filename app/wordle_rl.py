@@ -119,8 +119,6 @@ class WordleEnv(gym.Env):
         result = self.obs_state[1,self.current_step,:]
 
         if self.current_step > 0:
-
-
             if any([np.array_equal(self.obs_state[0,self.current_step,:],previous_word) for previous_word in self.obs_state[0,:self.current_step,:]]):
                 return(self.penalty)
         for num in result:
