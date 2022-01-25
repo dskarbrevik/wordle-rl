@@ -3,6 +3,7 @@ import gym
 from stable_baselines3 import A2C
 from stable_baselines3.common.evaluation import evaluate_policy
 import sys
+import torch
 
 def main(train_steps):
     env = WordleEnv("config.json")
