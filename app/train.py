@@ -4,11 +4,16 @@ from stable_baselines3 import A2C
 from stable_baselines3.common.evaluation import evaluate_policy
 import sys
 import torch
+import os
 
 def main(train_steps):
     env = WordleEnv("config.json")
-
-    model = A2C('MlpPolicy', env, verbose=1, device=torch.device(0))
+    if os.path.exists("./wordle_rl_model.zip"):
+        model = A2C.load("wordle_rl_model.zip", env, verbose=1, device=torch.device(0))
+        print("Using pre-trained model as starting point.")
+    else:
+        model = A2C('MlpPolicy', env, verbose=1, device=torch.device(0))
+        print("No existing model found, starting from scratch.")
 
     model.learn(total_timesteps=int(train_steps))
 
