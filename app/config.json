@@ -8,8 +8,8 @@
       "VERBOSITY": "WARNING",
       "WIN_REWARD": 1000,
       "RIGHT_LETTER_REWARD": 1,
-      "RIGHT_POSITION_REWARD": 5,
-      "PENALTY": -500
+      "RIGHT_POSITION_REWARD": 50,
+      "PENALTY": -500000000
     },
 
     "agent_config": {
