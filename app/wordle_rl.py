@@ -117,15 +117,18 @@ class WordleEnv(gym.Env):
         reward = 0
         win = True
         result = self.obs_state[1,self.current_step,:]
-
+        answer_letters = self.obs_state[0,self.current_step,:]
+        used_letters = []
         if self.current_step > 0:
             if any([np.array_equal(self.obs_state[0,self.current_step,:],previous_word) for previous_word in self.obs_state[0,:self.current_step,:]]):
                 return(self.penalty)
-        for num in result:
-            if num == 28:
+        for answer in zip(result,answer_letters):
+            if answer[0] == 28:
                 win = False
-                reward += self.right_letter_reward
-            elif num == 29:
+                if answer[1] not in used_letters:
+                    reward += self.right_letter_reward
+                    used_letters.append(answer[1])
+            elif answer[0]== 29:
                 reward += self.right_position_reward
             else:
                 win = False

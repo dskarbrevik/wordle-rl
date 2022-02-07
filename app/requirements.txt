@@ -10,3 +10,4 @@ scipy==1.7.1
 # keras-rl2==1.0.5 # may not need, depending on how we build our agent
 # pyglet # only needed to visualize certain OpenGym environments
 stable-baselines3==1.3.0
+tf-agents
