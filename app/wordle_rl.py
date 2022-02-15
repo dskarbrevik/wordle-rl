@@ -140,7 +140,7 @@ class WordleEnv(gym.Env):
         self.total_reward = 0
         self.current_word = str(np.random.choice(self.game_words))
         self.current_word_vec = [ord(char) - 96 for char in self.current_word]
-        print(f"Correct word: {self.current_word}")
+#         print(f"Correct word: {self.current_word}")
         return self.obs_state
 
 
@@ -267,3 +267,7 @@ class WordleEnv(gym.Env):
             raise Exception(f"cannot convert slice request for: {a},{b},{c}")
         
         return(np.arange(start,stop))
+    
+    def compute_reward(self, achieved_goal, desired_goal, _info):
+        # Deceptive reward: it is positive only when the goal is achieved
+        return 0 if (achieved_goal == desired_goal).all() else -1
