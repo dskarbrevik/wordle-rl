@@ -6,10 +6,13 @@
   
     "rl_env":{
       "VERBOSITY": "WARNING",
-      "WIN_REWARD": 1000,
+      "WIN_REWARD": 10000,
       "RIGHT_LETTER_REWARD": 1,
       "RIGHT_POSITION_REWARD": 50,
-      "PENALTY": -500000000
+      "PENALTY": -5000,
+      "TF_AGENTS": false,
+      "GOAL_ENV": true,
+      "SIMPLIFY_GAME": false
     },
 
     "agent_config": {
