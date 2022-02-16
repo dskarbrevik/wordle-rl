@@ -10,8 +10,8 @@
       "RIGHT_LETTER_REWARD": 1,
       "RIGHT_POSITION_REWARD": 50,
       "PENALTY": -5000,
-      "TF_AGENTS": false,
-      "GOAL_ENV": true,
+      "TF_AGENTS": true,
+      "GOAL_ENV": false,
       "SIMPLIFY_GAME": false
     },
 

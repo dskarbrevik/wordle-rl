@@ -175,13 +175,12 @@ class WordleEnv(gym.Env):
             self.obs_state['achieved_goal'][0,self.current_step,:] = action_vec
             self.obs_state['achieved_goal'][1,self.current_step,:] = result_vec
 
+            self.obs_state['desired_goal'] = self.obs_state['achieved_goal']
             self.obs_state['desired_goal'][0,self.current_step,:] = self.current_word_vec
             self.obs_state['desired_goal'][1,self.current_step,:] = np.array([29,29,29,29,29])
         else:
             self.obs_state[0,self.current_step,:] = action_vec
             self.obs_state[1,self.current_step,:] = result_vec
-        # self.obs_state[0,self.current_step,:] = action_vec
-        # self.obs_state[1,self.current_step,:] = result_vec
 
 
     def _calc_reward(self):
