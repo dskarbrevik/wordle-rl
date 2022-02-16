@@ -26,7 +26,7 @@ RL for Wordle
 ### Wordle related resources
 
 * wordle word lists (https://gist.github.com/cfreshman)
-Note: these word lists can also be taken from the javascript in the wordle website
+Note: these are not the same as Wordle's current lists since NYTimes bought it
 
 * [Solving Wordle with information theory (youtube)](https://www.youtube.com/watch?v=v68zYyaEmEA)
 

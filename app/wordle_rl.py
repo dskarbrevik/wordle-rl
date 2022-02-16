@@ -198,7 +198,8 @@ class WordleEnv(gym.Env):
         used_letters = []
         if self.current_step > 0:
             if self.tf_agents:
-                if any([np.array_equal(self.obs_state[self._convert_slice_dim(a=0,b=self.current_step)],previous_word) for previous_word in self.obs_state[self._convert_slice_dim(a=0,b_max=self.current_step)]]):
+                tmp_obs = self.obs_state.reshape((2,6,5))
+                if any([np.array_equal(tmp_obs[0,self.current_step,:],previous_word) for previous_word in tmp_obs[0,:self.current_step,:]]):
                     return(self.penalty)
             elif self.goal_env:
                  if any([np.array_equal(self.obs_state['observation'][0,self.current_step,:],previous_word) for previous_word in self.obs_state['observation'][0,:self.current_step,:]]):
@@ -256,7 +257,7 @@ class WordleEnv(gym.Env):
         if a!=None and b_max!=None and c==None:
             start = 0
             stop = (a*self.obs_height*self.obs_width)+(self.obs_width*b_max)+self.obs_width
-        if a!=None and b!=None and c==None:
+        elif a!=None and b!=None and c==None:
             start = (a*self.obs_height*self.obs_width)+(self.obs_width*b)
             stop = (a*self.obs_height*self.obs_width)+(self.obs_width*b)+self.obs_width
         elif a!=None and b==None and c==None:
